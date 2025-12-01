@@ -28,7 +28,10 @@ SECRET_KEY = 'django-insecure-nzpo+oufwrbwt-a1b81b$_rz+67v-w+=zus32j(tm045xzr7zc
 DEBUG =True
 
 
-ALLOWED_HOSTS = ['127.0.0.1']
+ALLOWED_HOSTS = [
+    '127.0.0.1',
+    'partsstore.onrender.com',
+]
 
 
 # Application definition
