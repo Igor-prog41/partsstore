@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>{{ title|capfirst }}</h1>
+
+  <ul class="list-articles">
+  {% for p in post %}
+  {% if p.is_published %}
+    <li>
+      <h2>{{ p.title }}</h2>
+      {% autoescape off %}
+      {{ p.description|linebreaks|truncatewords:10 }}
+      {% endautoescape %}
+      <div class="clear"></div>
+      <p class="link-read-post"><a href="{% url 'part'  p.id %}">See details {{ p.title }}</a></p>
+    </li>
+  {% endif %}
+  {% endfor %}
+  </ul>
+
+{% endblock %}
