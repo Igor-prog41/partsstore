@@ -10,6 +10,8 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
+import os
+
 from pathlib import Path
 
 from django.conf.global_settings import STATICFILES_DIRS
@@ -125,10 +127,22 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+
+
+# The directory where static files will be collected for deployment
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles') 
+
+# (Optional) If you have a project-level 'static' directory, add this:
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+
+# Use WhiteNoise's storage backend for efficient serving and caching
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage' 
